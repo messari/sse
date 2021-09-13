@@ -8,6 +8,7 @@ import (
 	"bufio"
 	"bytes"
 	"context"
+	"github.com/davecgh/go-spew/spew"
 	"io"
 	"time"
 )
@@ -32,6 +33,9 @@ type EventStreamReader struct {
 func NewEventStreamReader(eventStream io.Reader) *EventStreamReader {
 	scanner := bufio.NewScanner(eventStream)
 	split := func(data []byte, atEOF bool) (int, []byte, error) {
+
+		spew.Dump(data)
+
 		if atEOF && len(data) == 0 {
 			return 0, nil, nil
 		}
