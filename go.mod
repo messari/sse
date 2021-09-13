@@ -1,4 +1,4 @@
-module github.com/r3labs/sse/v2
+module github.com/messari/sse
 
 go 1.13
 
